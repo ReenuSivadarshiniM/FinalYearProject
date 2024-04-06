@@ -1,8 +1,10 @@
 package Project.doctor;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import Project.customer.Customer;
+import jakarta.persistence.*;
+
+import java.util.List;
+
 @Entity
 public class Doctor {
 
@@ -15,6 +17,12 @@ public class Doctor {
     private String doctorEmail;
     private String password;
 
+    @ManyToMany
+    private List<Customer> customer;
+
+    public Doctor() {
+    }
+
     @Override
     public String toString() {
         return "Doctor{" +
@@ -24,10 +32,8 @@ public class Doctor {
                 ", mobileNumber='" + mobileNumber + '\'' +
                 ", doctorEmail='" + doctorEmail + '\'' +
                 ", password='" + password + '\'' +
+                ", customer=" + customer +
                 '}';
-    }
-
-    public Doctor() {
     }
 
     public Integer getId() {
@@ -78,12 +84,21 @@ public class Doctor {
         this.password = password;
     }
 
-    public Doctor(Integer id, String doctorName, String address, String mobileNumber, String doctorEmail, String password) {
+    public List<Customer> getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(List<Customer> customer) {
+        this.customer = customer;
+    }
+
+    public Doctor(Integer id, String doctorName, String address, String mobileNumber, String doctorEmail, String password, List<Customer> customer) {
         this.id = id;
         this.doctorName = doctorName;
         this.address = address;
         this.mobileNumber = mobileNumber;
         this.doctorEmail = doctorEmail;
         this.password = password;
+        this.customer = customer;
     }
 }
