@@ -36,9 +36,9 @@ public class Booking {
 
     public Booking() {
     }
-    public Booking(Integer bookId, Doctor testDriveCar, Integer slotNo, LocalDate bookingDate, Boolean status, LocalDate date, Customer customer) {
+    public Booking(Integer bookId, Doctor doctorName, Integer slotNo, LocalDate bookingDate, Boolean status, LocalDate date, Customer customer) {
         this.bookId = bookId;
-        this.doctorName = testDriveCar;
+        this.doctorName = doctorName;
         this.slotNo = slotNo;
         this.bookingDate = bookingDate;
         this.status = status;

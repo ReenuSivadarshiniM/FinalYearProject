@@ -9,13 +9,7 @@ public class BookingOutputDto {
     private Integer slotNo;
     private LocalDate date;
     private LocalDate bookingDate;
-    private String staffName;
-    private String staffMobileNumber;
-    private Boolean status;
-
-    public Integer getBookId() {
-        return bookId;
-    }
+    private String doctorMobileNumber;
 
     public Boolean getStatus() {
         return status;
@@ -23,6 +17,23 @@ public class BookingOutputDto {
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public BookingOutputDto(Integer bookId, String customerEmailId, String doctorName, Integer slotNo, LocalDate date, LocalDate bookingDate, String doctorMobileNumber, Boolean status) {
+        this.bookId = bookId;
+        this.customerEmailId = customerEmailId;
+        this.doctorName = doctorName;
+        this.slotNo = slotNo;
+        this.date = date;
+        this.bookingDate = bookingDate;
+        this.doctorMobileNumber = doctorMobileNumber;
+        this.status = status;
+    }
+
+    private Boolean status;
+
+    public Integer getBookId() {
+        return bookId;
     }
 
     public void setBookId(Integer bookId) {
@@ -70,31 +81,23 @@ public class BookingOutputDto {
     }
 
 
-    public String getStaffName() {
-        return staffName;
+
+    public String getDoctorMobileNumber() {
+        return doctorMobileNumber;
     }
 
-    public void setStaffName(String staffName) {
-        this.staffName = staffName;
+    public void setDoctorMobileNumber(String doctorMobileNumber) {
+        this.doctorMobileNumber = doctorMobileNumber;
     }
 
-    public String getStaffMobileNumber() {
-        return staffMobileNumber;
-    }
-
-    public void setStaffMobileNumber(String staffMobileNumber) {
-        this.staffMobileNumber = staffMobileNumber;
-    }
-
-    public BookingOutputDto(Integer bookId, String customerEmailId, String doctorName, Integer slotNo, LocalDate date, LocalDate bookingDate, String staffName, String staffMobileNumber, Boolean status) {
+    public BookingOutputDto(Integer bookId, String customerEmailId, String carModelName, Integer slotNo, LocalDate date, LocalDate bookingDate, String staffName, String staffMobileNumber,Boolean status) {
         this.bookId = bookId;
         this.customerEmailId = customerEmailId;
-        this.doctorName = doctorName;
+        this.doctorName = carModelName;
         this.slotNo = slotNo;
         this.date = date;
         this.bookingDate = bookingDate;
-        this.staffName = staffName;
-        this.staffMobileNumber = staffMobileNumber;
+        this.doctorMobileNumber = staffMobileNumber;
         this.status = status;
     }
 }

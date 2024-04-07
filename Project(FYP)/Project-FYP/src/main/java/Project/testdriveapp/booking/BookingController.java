@@ -18,47 +18,55 @@ public class BookingController {
         return this.bookingService.createNewBooking(newBooking);
     }
 
+    @GetMapping("booking/doctor/all")
+    public List<BookingOutputDto> getAllBookings() throws BookingException {
+        return this.bookingService.getAllBookings();
+    }
+
+    @GetMapping("booking/{id}")
+    public BookingOutputDto getBookingById(@PathVariable Integer id) throws BookingException {
+        return this.bookingService.getBookingById(id);
+    }
+
+
     @DeleteMapping("booking/{bookId}")
     public void deleteBooking(@PathVariable Integer bookId) throws BookingException {
         this.bookingService.deleteBooking(bookId);
+
     }
+
+        @GetMapping("booking/slot/all/{slotNo}")
+    public List<BookingOutputDto> getAllUserBookingBySlotNo(@PathVariable Integer slotNo) throws BookingException {
+        return this.bookingService.getAllUserBookingBySlotNo(slotNo);
+    }
+
 
     @GetMapping("booking/user/all/{mailId}")
     public List<BookingOutputDto> getAllUserBookingByEmail(@PathVariable String mailId) throws BookingException {
         return this.bookingService.getAllUserBookingByEmail(mailId);
     }
 
-    @GetMapping("booking/slot/all/{slotNo}")
-    public List<BookingOutputDto> getAllUserBookingBySlotNo(@PathVariable Integer slotNo) throws BookingException {
-        return this.bookingService.getAllUserBookingBySlotNo(slotNo);
-    }
-
-    @GetMapping("booking/date/all/{date}")
-    public List<BookingOutputDto> getAllUserBookingByDate(@PathVariable LocalDate date) throws BookingException {
-        return this.bookingService.getAllUserBookingByDate(date);
-    }
-
-    @GetMapping("booking/car/all/{carModelName}")
-    public List<BookingOutputDto> getAllUserBookingByCarId(@PathVariable String carModelName) throws BookingException {
-        return this.bookingService.getAllUserBookingByDoctorName(carModelName);
-    }
-
-    @GetMapping("booking/car/all")
-    public List<BookingOutputDto> getAllBookings() throws BookingException {
-        return this.bookingService.getAllBookings();
-    }
-     @GetMapping("booking/staff/all/{staffEmail}")
-    public List<BookingOutputDto> getAllUserBookingsByStaffEmail(@PathVariable String staffEmail)throws BookingException
-    {
-        return this.bookingService.getAllUserBookingsByStaffEmail(staffEmail);
-    }
-    @GetMapping("booking/{id}")
-    public BookingOutputDto getBookingById(@PathVariable Integer id) throws BookingException
-    {
-        return this.bookingService.getBookingById(id);
-    }
-}
 
 
-   
+//    @GetMapping("booking/date/all/{date}")
+//    public List<BookingOutputDto> getAllUserBookingByDate(@PathVariable LocalDate date) throws BookingException {
+//        return this.bookingService.getAllUserBookingByDate(date);
+//    }
+
+    @GetMapping("booking/car/all/{doctorName}")
+    public List<BookingOutputDto> getAllUserBookingByCarId(@PathVariable String doctorName) throws BookingException {
+        return this.bookingService.getAllUserBookingByDoctorName(doctorName);
+    }
+
+
+//     @GetMapping("booking/staff/all/{staffEmail}")
+//    public List<BookingOutputDto> getAllUserBookingsByStaffEmail(@PathVariable String staffEmail)throws BookingException
+//    {
+//        return this.bookingService.getAllUserBookingsByStaffEmail(staffEmail);
+//    }
+//
+
+
+
+   }
 
